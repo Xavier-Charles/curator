@@ -16,36 +16,48 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Curator"),
       ),
-      body: Container(
-        color: Colors.teal[200],
-        width: 300,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          // mainAxisSize: MainAxisSize.max, doesn't
+      body: Center(
+        child: Container(
+          color: Colors.teal[400],
+          width: 100,
+          height: 100,
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
           children: <Widget>[
-            Container(
-              color: Colors.green[400],
-              width: 90,
-              height: 120,
-              alignment: Alignment.topLeft,        
+            // DrawerHeader(
+            //   child: Text("Hi"),
+            //   decoration: BoxDecoration(color: Colors.amber[300]),
+            //   ),
+            UserAccountsDrawerHeader(
+              accountName: Text("Xharles Dev"), 
+              accountEmail: Text("Hello@Xharles.dev"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage("https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"),
+              ),
+              ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Xharles Dev"),
+              subtitle: Text("Flutter is on fire"),
+              trailing: Icon(Icons.edit),
+              onTap: () => {},
             ),
-            Container(
-              color: Colors.red[400],
-              width: 90,
-              height: 120,
-              alignment: Alignment.topLeft,        
-            ),
-            Container(
-              color: Colors.blue[400],
-              width: 90,
-              height: 120,
-              alignment: Alignment.topLeft,        
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Email"),
+              subtitle: Text("Hello@Xharles.dev"),
+              trailing: Icon(Icons.edit)
             ),
           ],
         )
-      )
-      
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: Icon(Icons.edit),
+        ),
     );
   }
 }
