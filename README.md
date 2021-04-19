@@ -1,9 +1,12 @@
-# curator_app
+# Curator_app
 
-A new Flutter project.
+A mobile app that curates top apparels on Jumia based on your style.
 
-## Getting Started
+## Built with
 
+[Flutter](https://flutter.dev/)
+
+====================== Might need this ==================================
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
