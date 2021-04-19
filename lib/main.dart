@@ -16,9 +16,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Curator"),
       ),
-      body: Container(
-        width: 100,
-        height: 100,
+      body: Center(
+        child: Container(
+        width: 120,
+        height: 120,
         alignment: Alignment.topLeft,
         decoration: BoxDecoration(
           color: Colors.red[400],
@@ -41,6 +42,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      )
+      
     );
   }
 }
