@@ -16,6 +16,31 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Curator"),
       ),
+      body: Container(
+        width: 100,
+        height: 100,
+        alignment: Alignment.topLeft,
+        decoration: BoxDecoration(
+          color: Colors.red[400],
+          borderRadius: BorderRadius.circular(10),
+          gradient: LinearGradient(colors: [
+            Colors.pink[300],
+            Colors.red[600]
+          ]),
+          boxShadow: [BoxShadow(
+            color: Colors.grey[350],
+            blurRadius:10,
+          )]
+        ),
+        child: Text("Enter the Gates of the Lord",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white70,
+            fontWeight: FontWeight.bold 
+          ),
+        ),
+      ),
     );
   }
 }
