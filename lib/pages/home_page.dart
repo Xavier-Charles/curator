@@ -6,6 +6,7 @@ import 'dart:convert';
 // import '../product_card_widget.dart';
 
 class HomePage extends StatefulWidget {
+    static const String routeName = "/home";
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -41,15 +42,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Curator"),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                Navigator.pop(context);
+              })
+        ],
       ),
       body: data != null
           ? ListView.builder(
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(data[index]["title"]),
-                  subtitle: Text("ID: ${data[index]["id"]}"),
-                  leading: Image.network(data[index]["url"])
-                );
+                    title: Text(data[index]["title"]),
+                    subtitle: Text("ID: ${data[index]["id"]}"),
+                    leading: Image.network(data[index]["url"]));
               },
               itemCount: data.length,
             )
