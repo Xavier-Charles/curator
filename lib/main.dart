@@ -2,23 +2,22 @@
 // import 'package:flutter/cupertino.dart'; IOS design scheme
 
 import 'package:curator_app/pages/home_page.dart';
+import 'package:curator_app/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Myapp(),
-    theme: ThemeData(primarySwatch: Colors.green),
-  ));
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Constants.prefs = await SharedPreferences.getInstance();
+  runApp(Myapp());
 }
 
 class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    home: HomePage(),
-    theme: ThemeData(primarySwatch: Colors.green),
-  );
+      home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.green),
+    );
   }
 }
-
-
