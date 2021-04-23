@@ -18,7 +18,7 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: Constants.prefs.get("loggedIn") == true ? HomePage(): LoginPage(),
       theme: ThemeData(primarySwatch: Colors.green),
       routes: {
         LoginPage.routeName: (context) => LoginPage(),

@@ -1,4 +1,5 @@
 // import 'package:curator_app/main.dart';
+import 'package:curator_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
@@ -63,14 +64,15 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: () {
+                                Constants.prefs.setBool("loggedIn", true);
                                 // formKey.currentState.validate();
 
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomePage()),
+                                Navigator.pushReplacementNamed(
+                                  context, HomePage.routeName
+                                  // MaterialPageRoute(
+                                  //     builder: (context) => HomePage()),
                                 );
-                                
+
                                 // cleaner way below. don't know why it doesn't work yet
                                 // Navigator.push(context, HomePage.routeName);
                               },

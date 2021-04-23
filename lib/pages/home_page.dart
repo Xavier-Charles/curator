@@ -1,3 +1,5 @@
+import 'package:curator_app/pages/login_page.dart';
+import 'package:curator_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:curator_app/drawer.dart';
 import 'package:http/http.dart' as http;
@@ -26,7 +28,7 @@ class _HomePageState extends State<HomePage> {
 
   fetchData() async {
     var res = await http.get(Uri.parse(url));
-    print(res.body);
+    // print(res.body);
     data = jsonDecode(res.body);
     setState(() => {});
     print(data);
@@ -46,7 +48,8 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(Icons.exit_to_app),
               onPressed: () {
-                Navigator.pop(context);
+                Constants.prefs.setBool("loggedIn", false);
+                Navigator.pushReplacementNamed(context, LoginPage.routeName);
               })
         ],
       ),
@@ -54,10 +57,9 @@ class _HomePageState extends State<HomePage> {
           ? ListView.builder(
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(data[index]["title"]),
-                  subtitle: Text("ID: ${data[index]["id"]}"),
-                  leading: Image.network(data[index]["url"])
-                );
+                    title: Text(data[index]["title"]),
+                    subtitle: Text("ID: ${data[index]["id"]}"),
+                    leading: Image.network(data[index]["url"]));
               },
               itemCount: data.length,
             )
