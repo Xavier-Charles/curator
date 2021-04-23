@@ -2,6 +2,7 @@
 // import 'package:flutter/cupertino.dart'; IOS design scheme
 
 import 'package:curator_app/pages/home_page.dart';
+import 'package:curator_app/pages/login_page.dart';
 import 'package:curator_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,8 +17,13 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
       theme: ThemeData(primarySwatch: Colors.green),
+      routes: {
+        LoginPage.routeName: (context) => LoginPage(),
+        HomePage.routeName: (context) => HomePage()
+      },
     );
   }
 }
